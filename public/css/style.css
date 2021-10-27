@@ -1,0 +1,21 @@
+.title {
+    font-weight: bold;
+    text-align: center; 
+    font-size: 64px;
+}
+
+.etiqueta-celda{
+    font-size: 34px;
+    padding: 20px;
+    display: block;
+    margin: 0px auto;
+    }
+.formulario{
+    display: block;
+    text-align: center;
+    }
+.boton{
+    display: block;
+    margin: 10px auto;
+    font-size: 18px;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolutionNow</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+        $('.fromLogin').show();
+        $('.fromRegistro').hide();
+        
+        $(".alternador").on("click", function () {
+        $('.fromLogin').hide();
+        $('.fromRegistro').show();
+
+        });
+    
+    });
+
+
+       
+    </script>
+
+</head>
+
+<body>
+
+    <div class="mainContainer">
+        <div class="fromConteiner">
+
+            <div class="fromLogin">
+                <h2 class="title">Ingresa ahora</h2>
+
+                <form action="/iniciar" class="formulario" method="post">
+
+                    <label class="etiqueta-celda" for="text">Username</label>
+                    <input class="etiqueta-celda" type="text" name="username" id="username" placeholder="Enter your username" required>
+
+                    <label class="etiqueta-celda" for="password">Password</label>
+                    <input class="etiqueta-celda" type="password" name="password" id="password" placeholder="Enter your password" required>
+
+                    <input class="boton" type="submit" value="Iniciar sesión">
+
+                </form>
+
+            </div><!-- FORM BODY-->
+
+            
+            <div class="fromRegistro">
+                <h2 class="title">¿No tienes cuenta?</h2>
+
+                <form action="/registro" class="formulario" method="post">
+
+                    <label class="etiqueta-celda" for="text">Username</label>
+                    <input class="etiqueta-celda" type="text" name="usernameR" id="usernameR" placeholder="Crea un nombre" required>
+
+                    <label class="etiqueta-celda" for="passwordR">Password</label>
+                    <input class="etiqueta-celda" type="passwordR" name="passwordR" id="passwordR" placeholder="Una contraseña" required>
+
+                    <input class="boton" type="submit" value="Registro">
+
+                </form>
+
+            </div><!-- FORM BODY-->    
+
+            <div class="formFooter">
+                <div>
+                    <span>¿No tienes cuenta?</span>
+                    <button class="alternador">Registrarte ya</button>
+                </div>
+            </div><!-- FORM FOOTER -->
+
+
+
+
+        </div><!-- FORM CONTAINER -->
+    </div> <!-- MAIN CONTAINER -->
+
+</body>
+
+</html>

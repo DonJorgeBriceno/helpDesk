@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#div_incidentes').hide();
+      $('#div_requerimientos').hide();
+      $('#div_solicitudI').hide();
+      $('#div_solicitudR').hide();
+      $('#div_verPerfil').hide();
+      $('#div_listartodo').hide();
+
+      $("#incidentes").on("click", function () {
+
+
+        $('#div_incidentes').show();
+        $('#div_requerimientos').hide();
+        $('#div_solicitudI').hide();
+        $('#div_solicitudR').hide();
+        $('#div_verPerfil').hide();
+        $('#div_listartodo').hide();
+        $.get("/verIncidentes/false", function (data, status) {
+          $('#div_incidentes').html(data);
+        });
+
+      });
+      $("#requerimientos").on("click", function () {
+        $('#div_requerimientos').show();
+        $('#div_incidentes').hide();
+        $('#div_solicitudI').hide();
+        $('#div_solicitudR').hide();
+        $('#div_verPerfil').hide();
+        $('#div_listartodo').hide();
+      });
+
+      $("#crearIncidente").on("click", function () {
+
+
+        $('#div_requerimientos').hide();
+        $('#div_incidentes').hide();
+        $('#div_solicitudI').show();
+        $('#div_solicitudR').hide();
+        $('#div_verPerfil').hide();
+        $('#div_listartodo').hide();
+
+
+      });
+
+      $("#ListarTodo").on("click", function () {
+
+        $.get("/verIncidentes/true", function (data, status) {
+          $('#div_listartodo').html(data);
+        });
+
+        $('#div_requerimientos').hide();
+        $('#div_incidentes').hide();
+        $('#div_solicitudI').hide();
+        $('#div_solicitudR').hide();
+        $('#div_listartodo').show();
+        $('#div_verPerfil').hide();
+
+
+      });
+
+
+
+      $("#verPerfil").on("click", function () {
+        $('#div_requerimientos').hide();
+        $('#div_incidentes').hide();
+        $('#div_solicitudI').hide();
+        $('#div_solicitudR').hide();
+        $('#div_verPerfil').show();
+        $('#div_listartodo').hide();
+      });
+    });
+  </script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesa de ayuda</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="barraSuperior">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">SolutionNow</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Cuenta
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a id="verPerfil" name="verPerfil" class="dropdown-item" href="#">Ver perfil</a></li>
+                <li><a class="dropdown-item" href="#">Salir</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" tabindex="-1" aria-disabled="true">Tu nombre aquí</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+
+        </div>
+      </div>
+    </nav>
+    <hr>
+
+
+  </div>
+  <div id="barraLateral">
+    <div class="container-fluid">
+      <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-info">
+          <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-dark min-vh-100">
+
+            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+              <li class="nav-item">
+                <a href="#CrearIncidentes" id="incidentes" name="incidentes" class="nav-link align-middle px-0">
+                  <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline text-dark">Incidentes</span>
+                </a>
+              </li>
+              <li>
+                <a href="#ListarTodo" id="ListarTodo" name="ListarTodo" data-bs-toggle="collapse"
+                  class="nav-link px-0 align-middle">
+                  <i class="fs-4 bi-speedometer2"></i> <span
+                    class="ms-1 d-none d-sm-inline text-dark">Solucionado</span>
+                </a>
+
+              </li>
+              <hr>
+              <li>
+                <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                  <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline text-dark">Crear</span> </a>
+                <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                  <li class="w-100">
+                    <a href="#CreaIncidente" id="crearIncidente" name="crearIncidente" data-bs-toggle="collapse"
+                      class="nav-link px-0 align-middle">
+                      <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline text-dark">Crea un
+                        incidente</span> </a>
+                  </li>
+                </ul>
+              </li>
+
+            </ul>
+
+
+          </div>
+        </div>
+        <div class="col py-3" name="div_incidentes" id="div_incidentes">
+          <h3>Incidentes</h3>    
+        </div>
+        <div class="col py-3" name="div_listartodo" id="div_listartodo">
+          <h3>Mostrando todas las solicitudes</h3>
+        </div>
+        <div class="col py-3" name="div_solicitudI" id="div_solicitudI">
+          <h3>Solicita un incidente</h3>
+              <div class="container">
+            <div class="shadow-lg p-3 mb-5 bg-body rounded">
+              <h4>Datos del Incidente</h4>
+              <form action="/crear" method="POST" name="formulario" id="formulario">
+                <div class="col-md-6">
+                  <label class="form-label">INCIDENTE: </label>
+                  <input id="codigo" name="codigo" type="number" class="form-control form-control-sm" readonly>
+                </div>
+                <div class="col-md-6">
+                  <label for="prioridad" class="form-label">Prioridad</label>
+                  <input id="prioridad" name="prioridad" type="number" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="asunto" class="form-label">Asunto</label>
+                  <input id="asunto" name="asunto" type="text" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="desc" class="form-label">Descripción</label>
+                  <input id="desc" name="desc" type="text" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="res" class="form-label">Responsable</label>
+                  <input id="res" name="res" type="text" class="form-control" required>
+                </div>
+            </div>
+            <button type="submit" class="w-100 btn btn-guardar btn-lg"><i class="bi bi-save"> </i>Crear
+              Incidente</button>
+            </form>
+            <script>
+              var aleratorio = Math.floor((Math.random() * (10000 - 100 + 1)) + 10000);
+              document.formulario.codigo.value = aleratorio
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+              integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+              crossorigin="anonymous"></script>
+
+
+          </div>
+
+          <div class="col py-3" name="div_solicitudR" id="div_solicitudR">
+            <h3>Solicita un Requerimiento</h3>
+          </div>
+          <div class="col py-3" name="div_verPerfil" id="div_verPerfil">
+            <h3>Ver Perfil</h3>
+           </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
