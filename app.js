@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 const db = require('./db')
-
+const port = process.env.PORT || 3000
 
 app.set('view engine', 'ejs')
 
@@ -19,6 +19,6 @@ app.get('/', (req, res)=>{
     res.render('logIn')
 })
 
-app.listen(3000, ()=>{
-    console.log('¡Server UP! en http://localhost:3000')
+app.listen(port, ()=>{
+    console.log(`Example app listening at http://localhost:${port}`)
 })
