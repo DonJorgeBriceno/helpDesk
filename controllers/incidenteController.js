@@ -50,7 +50,7 @@ module.exports.crear = (req, res)=>{
                 message: 'Error al crear el inc'
             })
         }
-        res.redirect('/')    
+        return res.render('index')    
     })
 }
 
@@ -80,7 +80,7 @@ module.exports.cambioEstado = (req, res)=>{
 
 
 
-        res.redirect('/')
+        return res.render('index')
        
     })
 }
@@ -96,7 +96,7 @@ module.exports.borrar = (req, res)=>{
                 message: 'Error eliminando el inc'
             })
         }
-        res.redirect('/')
+        return res.render('index')
     })
 }
 
@@ -112,12 +112,12 @@ module.exports.registro = (req, res)=>{
     user.save(function(error,user){
         if(error){
             return res.status(500).json({
-                message: 'Error al crear el user'
+                message: 'Error al crear el user', error
             })
         } else{
             console.log("Usuario creado con éxito")
         }
-        res.redirect('/')    
+        return res.render('index')   
     })
 }
 

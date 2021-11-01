@@ -87,6 +87,8 @@
             if(!estaSolucionado()){ //Asigno rutas
                 resolucion = notaCierre.value //Recupero la info del textArea
                 ruta = "http://localhost:3000/cambioEstado/<%= inc._id %>/"+resolucion
+            } else{
+                ruta = "http://localhost:3000/volver"
             } 
              window.location.href = ruta //Redirecciono
         };

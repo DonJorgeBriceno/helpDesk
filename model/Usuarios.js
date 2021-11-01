@@ -3,7 +3,6 @@ const Schema = mongoose.Schema
 const bcrypt = require('bcrypt')
 
 const userSchema = new Schema ({
-    cod: Number,
     username: {
         type: String,
         unique: true,
@@ -12,9 +11,7 @@ const userSchema = new Schema ({
     password: {
         type: String,
         require: true
-        
     },
-    cargo: String,
 }, {versionKey:false})
 
 
