@@ -70,7 +70,7 @@
 
     <script>
 
-        let ruta, resolucion
+        let resolucion
         let etiquetaBoton = document.getElementById('btnSolucionar').value //Texto del botón
         let notaCierre = document.getElementById('textSolucion') //Información del textArea
         
@@ -86,11 +86,11 @@
         document.getElementById("btnSolucionar").onclick = function () { //Tomo el evento click
             if(!estaSolucionado()){ //Asigno rutas
                 resolucion = notaCierre.value //Recupero la info del textArea
-                ruta = "http://localhost:3000/cambioEstado/<%= inc._id %>/"+resolucion
+                window.location.href = "http://localhost:3000/cambioEstado/<%= inc._id %>/"+resolucion
             } else{
-                ruta = "http://localhost:3000/volver"
+                window.location.href = "http://localhost:3000/volver"
             } 
-             window.location.href = ruta //Redirecciono
+            
         };
        
     </script>

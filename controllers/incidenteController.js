@@ -117,7 +117,7 @@ module.exports.registro = (req, res)=>{
         } else{
             console.log("Usuario creado con éxito")
         }
-        return res.render('index')   
+        res.redirect('/')  
     })
 }
 
